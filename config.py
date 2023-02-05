@@ -85,7 +85,7 @@ def make_list_great(group_name,date):
         else:
             raise Exception("integer group")
     except Exception as ex:
-        a = "Такой группы нет, либо дата указана неверно"
+        a = "Недоступная дата"
         return a
 
 #-------------------------------------------------------------
@@ -227,6 +227,8 @@ def make_day_greater(date):
     great_date = great_date.strftime('%Y-%m-%d')
     return str(great_date)
 
+#-------------------------------------------------------------
+#print(get_institutes())
 #print(make_placelist_great("5512", "2023-02-02"))
 #print(print_dateplace("5512", "2023-02-02"))
 #print(make_placelist_great(place_id, date))
@@ -234,7 +236,7 @@ def make_day_greater(date):
 #print(print_dateteacher("Ощепкова Е.А.", "2023-02-01"))
 #print(get_teacher_id("Ощепкова", "Ист-222")
 #print(make_list_great("ист-222","2023-02-01"))
-print(make_teacherlist_great("Пилин","2023-02-03", "эмт-191"))
+#print(make_teacherlist_great("Пилин","2023-02-03", "эмт-191"))
 #print(print_dateteacher("Ощепкова", "2023-02-01"))
 #print(daylist)
 #print(site)
