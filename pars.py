@@ -14,7 +14,7 @@ import os
 path = os.path.dirname(os.path.abspath(__file__)) + "//"
 os.chdir(path)
 
-bot = Bot(token="2141742644:AAGQvMwjYrdyUtD_lyZSDlb1aROis-tdDDk")
+bot = Bot(token="5814136143:AAGkvr2qyx6F0nYrbARQL4-s9PAINKiuTyc")
 dp = Dispatcher(bot, storage=MemoryStorage())
 grouplist = {}
 teacherlist = {}
