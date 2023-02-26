@@ -347,7 +347,7 @@ def make_day_greater(date):
 #print(make_list_great("ист-222","2023-02-27"))
 #print(make_teacherlist_great("Пилин","2023-02-03", "эмт-191"))
 #print(print_dateteacher("Ощепкова", "2023-02-01"))
-print(make_week_list_great("ист-222"))
+#print(make_week_list_great("ист-222"))
 #print(daylist)
 #print(site)
 #site = site.encode().decode("unicode-escape")
