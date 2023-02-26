@@ -3,12 +3,13 @@ from aiogram.dispatcher import Dispatcher, FSMContext
 from aiogram.utils import executor
 from aiogram.types import ParseMode, BotCommand, InputFile
 from aiogram.dispatcher.filters.state import State, StatesGroup
-import config
+import kuzstuapi
 import datetime
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.utils.callback_data import CallbackData
 import logging
 import os
+import config
 #Добавить условия для except
 
 path = os.path.dirname(os.path.abspath(__file__)) + "//"
@@ -210,7 +211,7 @@ async def send_today_schedule(message: types.Message):
     try:
         if statelist[message.from_id] == "student":
             try:
-                await message.reply(config.make_list_great(grouplist.get(message.from_id)[0],schedule), parse_mode=ParseMode.HTML)
+                await message.reply(kuzstuapi.reform_group_schedule(grouplist.get(message.from_id)[0],schedule), parse_mode=ParseMode.MARKDOWN)
             except:
                 await message.reply("Сначала добавьте группу")
         elif statelist[message.from_id] == "teacher":
@@ -227,7 +228,7 @@ async def send_tomorrow_schedule(message: types.Message):
     try:
         if statelist[message.from_id] == "student":
             try:
-                await message.reply(config.make_list_great(grouplist.get(message.from_id)[0],(schedule)),parse_mode=ParseMode.HTML)
+                await message.reply(kuzstuapi.reform_group_schedule(grouplist.get(message.from_id)[0],(schedule)),parse_mode=ParseMode.MARKDOWN)
             except:
                 await message.reply("Сначала добавьте группу")
         elif statelist[message.from_id] == "teacher":
