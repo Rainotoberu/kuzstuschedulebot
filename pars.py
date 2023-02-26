@@ -242,11 +242,10 @@ async def send_tomorrow_schedule(message: types.Message):
 
 @dp.message_handler(text="📕На неделю📕")
 async def send_today_schedule(message: types.Message):
-    schedule = str(datetime.datetime.now().strftime('%Y-%m-%d'))
     try:
         if statelist[message.from_id] == "student":
             try:
-                await message.reply(config.make_week_list_great(grouplist.get(message.from_id)[0]), parse_mode=ParseMode.HTML)
+                await message.reply(kuzstuapi.reform_week_group_schedule(grouplist.get(message.from_id)[0]), parse_mode=ParseMode.MARKDOWN)
             except:
                 await message.reply("Сначала добавьте группу")
         elif statelist[message.from_id] == "teacher":

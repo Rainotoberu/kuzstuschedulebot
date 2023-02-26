@@ -44,6 +44,27 @@ def make_group_schedule_nice(schedule):
             schedule_str += f"*{emoji_dict.get(int(i[4]))} {lesson_dict.get(int(i[4]))}*\n{i[9]}\n_{i[10]}, ауд.{i[5]}_\n*{i[8]}*\n{separator}\n"
     return schedule_str
 
+def reform_week_group_schedule(_group_name):
+    schedule = get_group_schedule(_group_name)
+    group_name = schedule[1]
+    schedule = schedule[0]
+    schedule = pars_group_schedule(schedule)
+    week_list = []
+    week_start = datetime.datetime.today()
+    a, b = [], []
+    for i in range(0,7):
+        week_list.append((week_start - datetime.timedelta(days=i)).strftime("%Y-%m-%d"))
+    week_list.reverse()
+    for i in schedule:
+        for j in i:
+            if j[-1] in week_list:
+                a.append(i)
+                break
+    for i in a:
+        b.append(make_group_schedule_nice(i))
+    return("".join(b))
+    
+
 # {0'id': '5728015', 1'education_group_name': 'ИСт-222', 2'education_group_id': '6460', 3'day_number': '2', 
 # 4'lesson_number': '4', 5'place': '5505', 6'subgroup': '0', 7'teacher_id': '101041', 8'teacher_name': 'Клавецка Т.Я.', 
 # 9'subject': 'Астрономия', 10'type': 'л.', 11'date_lesson': '2023-02-28'}
@@ -62,5 +83,6 @@ def pars_group_schedule(schedule):
             datelesson = i["date_lesson"]
     return schedule_list
 
-#print(get_group_schedule("ист-222"))
-#print(reform_group_schedule("ист-222", "2023-02-27"))
+#print(get_group_schedule("укст-221"))
+#print(reform_group_schedule("ХПм-211", "2023-02-27"))
+print(reform_week_group_schedule("ТЭб-201"))
