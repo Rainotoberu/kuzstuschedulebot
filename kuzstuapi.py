@@ -51,9 +51,10 @@ def reform_week_group_schedule(_group_name):
     schedule = pars_group_schedule(schedule)
     week_list = []
     week_start = datetime.datetime.today()
+    week_start = week_start - datetime.timedelta(days=week_start.weekday())
     a, b = [], []
     for i in range(0,7):
-        week_list.append((week_start - datetime.timedelta(days=i)).strftime("%Y-%m-%d"))
+        week_list.append((week_start + datetime.timedelta(days=i)).strftime("%Y-%m-%d"))
     week_list.reverse()
     for i in schedule:
         for j in i:
@@ -85,4 +86,4 @@ def pars_group_schedule(schedule):
 
 #print(get_group_schedule("укст-221"))
 #print(reform_group_schedule("ХПм-211", "2023-02-27"))
-print(reform_week_group_schedule("ТЭб-201"))
+#print(reform_week_group_schedule("Ист-222"))
