@@ -15,7 +15,7 @@ import config
 path = os.path.dirname(os.path.abspath(__file__)) + "//"
 os.chdir(path)
 
-bot = Bot(token="6046839961:AAGXl_r-RpnHrG8qRgVOiO8tq8IP9fpJE0Y")
+bot = Bot(token="")
 dp = Dispatcher(bot, storage=MemoryStorage())
 logging.basicConfig(level=logging.INFO)
 
